@@ -23,3 +23,5 @@ tokens:
   jwt_secret: "secret from env"
   access_token_ttl: 5m
   refresh_token_ttl: 100h
+  issuer: auth-service
+  audience: cloud-storage-api
