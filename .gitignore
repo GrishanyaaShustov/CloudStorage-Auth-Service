@@ -1,0 +1,43 @@
+# Binaries for programs and plugins
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+
+# Go build outputs
+*.test
+*.out
+
+# Go workspace & module files
+go.work
+go.work.sum
+.env
+.git/
+# Dependency directories (if using vendor)
+vendor/
+
+# IDE / Editor settings
+# VS Code
+.vscode/
+
+# IntelliJ / GoLand
+.idea/
+
+# Mac / Linux / Windows system files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Coverage files
+coverage.out
+*.coverprofile
+
+# Temporary files
+*.tmp
+*.swp
+
+# Go build cache (if explicitly created)
+# (Go's internal cache stays outside project dir so not needed)

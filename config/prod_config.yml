@@ -1,0 +1,25 @@
+env: "prod"
+
+postgres:
+  host: "host"
+  port: 5432
+  user: "user from env"
+  password: "password from env"
+  name: "postgres"
+  ssl_mode: "disable"
+
+  max_open_conns: 200
+  max_idle_conns: 15
+  conn_max_lifetime: 30m
+  conn_max_idle_time: 10m
+
+redis:
+  addr: "addr from env"
+  password: "password from env"
+  db: 0
+  timeout: 5s
+
+tokens:
+  jwt_secret: "secret from env"
+  access_token_ttl: 5m
+  refresh_token_ttl: 100h
