@@ -8,10 +8,10 @@ import (
 )
 
 type Config struct {
-	Env       string              `yaml:"env" env-default:"prod"`
-	PGConfig  PostgresConfig      `yaml:"postgres"`
-	RDSConfig RedisConfig         `yaml:"redis"`
-	Tokens    TokensConfiguration `yaml:"tokens"`
+	Env      string              `yaml:"env" env-default:"prod"`
+	Postgres PostgresConfig      `yaml:"postgres"`
+	Redis    RedisConfig         `yaml:"redis"`
+	Tokens   TokensConfiguration `yaml:"tokens"`
 }
 
 func MustLoad() *Config {
