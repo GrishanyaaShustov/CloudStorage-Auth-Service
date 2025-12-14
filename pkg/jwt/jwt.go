@@ -2,10 +2,12 @@ package jwt
 
 import (
 	"auth-service/internal/config"
+	"encoding/hex"
 	"errors"
 	"time"
 
 	jwtlib "github.com/golang-jwt/jwt/v5"
+	"golang.org/x/exp/rand"
 )
 
 var (
@@ -96,4 +98,13 @@ func (m *Manager) ParseAndValidate(tokenStr string) (*Claims, error) {
 	}
 
 	return claims, nil
+}
+
+func (m *Manager) GenerateRefreshToken() (string, error) {
+	bytes := make([]byte, 64)
+	_, err := rand.Read(bytes)
+	if err != nil {
+		return "", err
+	}
+	return hex.EncodeToString(bytes), nil
 }
