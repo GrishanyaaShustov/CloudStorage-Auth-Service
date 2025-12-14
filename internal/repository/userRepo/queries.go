@@ -8,9 +8,9 @@ const (
 		RETURNING id
 	`
 
-	// Get password hash by email (for login)
-	queryGetPasswordHashByEmail = `
-		SELECT password_hash
+	// Get user id and password hash by email (for login)
+	queryGetCredentialsByEmail = `
+		SELECT id, password_hash
 		FROM users
 		WHERE email = $1
 	`
