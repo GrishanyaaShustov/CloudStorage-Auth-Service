@@ -17,17 +17,17 @@ type LoginRequest struct {
 // RefreshAccessRequest are requires authentication
 // It sends to refresh access-token stored in HtppOnly Secure cookie
 type RefreshAccessRequest struct {
-	AccessToken string
+	// middleware put userID and email in context, so we don`t need put any fields
 }
 
 // LogoutRequest are requires authentication
 // It sends to get delete refresh-token from redis and access-token from HtppOnly Secure cookie
 type LogoutRequest struct {
-	AccessToken string
+	// middleware put userID , so we don`t need put any fields
 }
 
 // UserInformationRequest are requires authentication
 // It sends to get main user information
 type UserInformationRequest struct {
-	AccessToken string
+	// middleware put userID , so we don`t need put any fields
 }
