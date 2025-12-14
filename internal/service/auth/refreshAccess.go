@@ -3,6 +3,7 @@ package auth
 import (
 	"auth-service/internal/repository/tokenRepo"
 	"auth-service/internal/service/auth/models"
+	"auth-service/pkg/authctx"
 	"context"
 	"errors"
 	"fmt"
@@ -12,13 +13,13 @@ import (
 // that checks in middleware
 func (svc *authService) RefreshAccess(ctx context.Context, request models.RefreshAccessRequest) (models.RefreshAccessResponse, error) {
 	// get userID from context
-	userID, isContainsUserID := ctx.Value(ctxUserIDKey).(string)
+	userID, isContainsUserID := authctx.UserID(ctx)
 	if !isContainsUserID {
 		return models.RefreshAccessResponse{}, ErrInvalidCredentials
 	}
 
 	// get email from context
-	email, isContainsEmail := ctx.Value(ctxEmailKey).(string)
+	email, isContainsEmail := authctx.Email(ctx)
 	if !isContainsEmail {
 		return models.RefreshAccessResponse{}, ErrInvalidCredentials
 	}

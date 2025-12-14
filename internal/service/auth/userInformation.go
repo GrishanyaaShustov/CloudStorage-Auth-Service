@@ -3,6 +3,7 @@ package auth
 import (
 	"auth-service/internal/repository/userRepo"
 	"auth-service/internal/service/auth/models"
+	"auth-service/pkg/authctx"
 	"context"
 	"errors"
 	"fmt"
@@ -10,7 +11,7 @@ import (
 
 func (svc *authService) UserInformation(ctx context.Context, request models.UserInformationRequest) (models.UserInformationResponse, error) {
 	// get userID from context (set by auth middleware)
-	userID, isContainsUserID := ctx.Value(ctxUserIDKey).(string)
+	userID, isContainsUserID := authctx.UserID(ctx)
 	if !isContainsUserID {
 		return models.UserInformationResponse{}, ErrInvalidCredentials
 	}
