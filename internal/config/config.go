@@ -12,6 +12,7 @@ type Config struct {
 	Postgres PostgresConfig      `yaml:"postgres"`
 	Redis    RedisConfig         `yaml:"redis"`
 	Tokens   TokensConfiguration `yaml:"tokens"`
+	CORS     CORSConfig          `yaml:"cors"`
 }
 
 func MustLoad() *Config {

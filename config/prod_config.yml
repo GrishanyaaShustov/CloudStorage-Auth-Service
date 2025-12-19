@@ -25,3 +25,17 @@ tokens:
   refresh_token_ttl: 100h
   issuer: auth-service
   audience: cloud-storage-api
+
+cors:
+  allowed_origins:
+    - "http://localhost:5173"
+    - "https://app.example.com"
+  allowed_headers:
+    - "Content-Type"
+    - "Authorization"
+  allowed_methods:
+    - "GET"
+    - "POST"
+    - "OPTIONS"
+
+
