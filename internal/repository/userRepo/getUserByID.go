@@ -12,14 +12,14 @@ import (
 func (r *repo) GetUserByID(ctx context.Context, userID string) (domain.User, error) {
 	var user domain.User
 
-	err := r.pool.QueryRow(ctx, queryGetUserByID).
+	err := r.pool.QueryRow(ctx, queryGetUserByID, userID).
 		Scan(&user.UserID, &user.Email, &user.RegisterDate)
 
 	if err != nil {
 		if errors.Is(err, pgx.ErrNoRows) {
 			return domain.User{}, ErrUserNotFound
 		}
-		return domain.User{}, fmt.Errorf("%w, %v", ErrUserQueryFailed, err)
+		return domain.User{}, fmt.Errorf("%w: %v", ErrUserQueryFailed, err)
 	}
 
 	return user, nil

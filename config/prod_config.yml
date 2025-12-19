@@ -38,4 +38,8 @@ cors:
     - "POST"
     - "OPTIONS"
 
+cookies:
+  access_cookie_name: "access_token"
+  secure_cookies: true
+
 

@@ -14,13 +14,13 @@ type TokenRepo interface {
 }
 
 type repo struct {
-	tokenConfig *config.TokensConfiguration
+	tokenConfig config.TokensConfiguration
 	redisClient *redis.Client
 }
 
-//func New(tokenConfig *config.TokensConfiguration, redisClient *redis.Client) TokenRepo {
-//	return &repo{tokenConfig: tokenConfig, redisClient: redisClient}
-//}
+func New(tokenConfig config.TokensConfiguration, redisClient *redis.Client) TokenRepo {
+	return &repo{tokenConfig: tokenConfig, redisClient: redisClient}
+}
 
 func refreshKey(userID string) string {
 	return "refresh:" + userID

@@ -13,6 +13,7 @@ type Config struct {
 	Redis    RedisConfig         `yaml:"redis"`
 	Tokens   TokensConfiguration `yaml:"tokens"`
 	CORS     CORSConfig          `yaml:"cors"`
+	Cookies  CookiesConfig       `yaml:"cookies"`
 }
 
 func MustLoad() *Config {
