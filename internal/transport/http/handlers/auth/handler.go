@@ -5,6 +5,7 @@ import (
 	svc "auth-service/internal/service/auth"
 	"auth-service/internal/service/auth/models"
 	"encoding/json"
+	"log/slog"
 	"net/http"
 	"time"
 )
@@ -12,12 +13,14 @@ import (
 type Handler struct {
 	Service    svc.Service
 	CookiesCfg config.CookiesConfig
+	Logger     *slog.Logger
 }
 
-func New(svc svc.Service, cookiesCfg config.CookiesConfig) *Handler {
+func New(svc svc.Service, cookiesCfg config.CookiesConfig, logger *slog.Logger) *Handler {
 	return &Handler{
 		Service:    svc,
 		CookiesCfg: cookiesCfg,
+		Logger:     logger,
 	}
 }
 

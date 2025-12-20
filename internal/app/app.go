@@ -49,7 +49,7 @@ func New(ctx context.Context, log *slog.Logger, cfg config.Config) *App {
 	authService := auth.New(userRepository, tokenRepository, jwtManager, hasher)
 
 	// --- handlers ---
-	authHandler := authhandler.New(authService, cfg.Cookies)
+	authHandler := authhandler.New(authService, cfg.Cookies, log)
 
 	// --- http router ---
 	mainHandler := router.NewRouter(cfg.CORS, jwtManager, authHandler)
