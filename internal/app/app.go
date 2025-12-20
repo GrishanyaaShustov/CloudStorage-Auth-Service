@@ -51,7 +51,7 @@ func New(ctx context.Context, log *slog.Logger, cfg config.Config) *App {
 	// --- handlers ---
 	authHandler := authhandler.New(authService, cfg.Cookies)
 
-	// --- router ---
+	// --- http router ---
 	mainHandler := router.NewRouter(cfg.CORS, jwtManager, authHandler)
 
 	// --- http app ---
