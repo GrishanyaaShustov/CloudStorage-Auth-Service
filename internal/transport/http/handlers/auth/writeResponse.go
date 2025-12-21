@@ -20,10 +20,10 @@ func (h *Handler) writeAuthError(w http.ResponseWriter, err error) {
 	case errors.Is(err, svc.ErrUserNotFound):
 		http.Error(w, err.Error(), http.StatusNotFound)
 	case errors.Is(err, svc.ErrInternal):
-		h.Logger.Error("auth handler internal error", "err", err)
+		h.Logger.Error("auth handler internal error", "err", err.Error())
 		http.Error(w, "internal server error", http.StatusInternalServerError)
 	default:
-		h.Logger.Error("auth handler internal error", "err", err)
+		h.Logger.Error("auth handler internal error", "err", err.Error())
 		http.Error(w, "internal server error", http.StatusInternalServerError)
 	}
 }
